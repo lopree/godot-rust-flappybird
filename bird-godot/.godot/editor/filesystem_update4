@@ -1,2 +1,4 @@
 res://scene/game.tscn
 res://scene/player.tscn
+res://scene/coin.tscn
+res://scene/platforms.tscn

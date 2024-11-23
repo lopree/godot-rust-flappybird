@@ -1,4 +1,5 @@
 mod player;
+mod coin;
 use godot::prelude::*;
 
 pub struct RustExtension;

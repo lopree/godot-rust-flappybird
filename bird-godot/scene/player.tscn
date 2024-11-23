@@ -54,6 +54,7 @@ animations = [{
 radius = 11.0
 
 [node name="Player" type="Player"]
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -17)
