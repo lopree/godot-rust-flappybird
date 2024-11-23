@@ -12,7 +12,7 @@ impl IArea2D for Coin {
 
     fn enter_tree(&mut self){
         godot_print!("coin ready");
-        let callable = Callable::from_object_method(&self.base(), "onEnter");
+        let callable = Callable::from_object_method(&self.base(), "on_collision_enter");
         self.base_mut().connect("body_entered", &callable);
     }
 }
@@ -20,9 +20,8 @@ impl IArea2D for Coin {
 #[godot_api]
 impl Coin{
     #[func]
-    fn onEnter(&mut self,item:Gd<Node2D>){
-       godot_print!("from impl");
-       godot_print!("item:{}",item.get_name());
+    fn on_collision_enter(&mut self,body:Gd<Node2D>){
+       godot_print!("body:{}",item.get_name());
        self.base_mut().queue_free();
     }
 }
