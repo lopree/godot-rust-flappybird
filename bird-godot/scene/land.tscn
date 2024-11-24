@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://buh2wxmq8qln1"]
+
+[ext_resource type="Texture2D" uid="uid://ds6ygjrvmg53l" path="res://assets/sprite/LandAndPipe/land.png" id="1_m3hm3"]
+
+[node name="Land" type="Land"]
+position = Vector2(-168, 0)
+
+[node name="FirstLand" type="Sprite2D" parent="."]
+position = Vector2(-168, -56)
+texture = ExtResource("1_m3hm3")
+
+[node name="SecondLand" type="Sprite2D" parent="."]
+position = Vector2(168, -56)
+texture = ExtResource("1_m3hm3")
+
+[node name="ThirdLand" type="Sprite2D" parent="."]
+position = Vector2(504, -56)
+texture = ExtResource("1_m3hm3")
