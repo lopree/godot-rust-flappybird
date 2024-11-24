@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdc14bk6uho35"]
+[gd_scene load_steps=6 format=3 uid="uid://cdc14bk6uho35"]
 
 [ext_resource type="PackedScene" uid="uid://mvv4d0qr7rtx" path="res://scene/player.tscn" id="1_ubdtt"]
 [ext_resource type="PackedScene" uid="uid://2p8qfu88mxry" path="res://scene/coin.tscn" id="2_2rrat"]
 [ext_resource type="PackedScene" uid="uid://buh2wxmq8qln1" path="res://scene/land.tscn" id="3_icslq"]
+[ext_resource type="PackedScene" uid="uid://dwovt410e0phr" path="res://scene/day.tscn" id="4_hyd8b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y2jvk"]
 
@@ -11,7 +12,7 @@
 [node name="GameManager" type="GameManager" parent="."]
 
 [node name="Land" parent="." instance=ExtResource("3_icslq")]
-position = Vector2(-136, 163)
+position = Vector2(-126, 191)
 
 [node name="Player" parent="." instance=ExtResource("1_ubdtt")]
 position = Vector2(-3, -1)
@@ -26,7 +27,7 @@ collision_mask = 2
 [node name="bound" type="Node" parent="."]
 
 [node name="floor" type="StaticBody2D" parent="bound"]
-position = Vector2(-346, 54)
+position = Vector2(-522, 82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound/floor"]
 shape = SubResource("WorldBoundaryShape2D_y2jvk")
@@ -37,3 +38,8 @@ position = Vector2(0, -163)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound/Upfloor"]
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_y2jvk")
+
+[node name="bg" parent="." instance=ExtResource("4_hyd8b")]
+z_index = -1
+position = Vector2(2, -45)
+scale = Vector2(0.65, 0.65)

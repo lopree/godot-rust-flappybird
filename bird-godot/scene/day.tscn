@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwovt410e0phr"]
+
+[ext_resource type="Texture2D" uid="uid://cnelklisincbr" path="res://assets/sprite/bg/bg_day.png" id="1_862mn"]
+[ext_resource type="Texture2D" uid="uid://c36tnnlhrg2kq" path="res://assets/sprite/bg/bg_night.png" id="2_bt853"]
+
+[node name="bg" type="Pipe"]
+
+[node name="day" type="Sprite2D" parent="."]
+texture = ExtResource("1_862mn")
+
+[node name="night" type="Sprite2D" parent="."]
+texture = ExtResource("2_bt853")

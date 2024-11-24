@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl3khvgsmpfjs"]
+
+[ext_resource type="Texture2D" uid="uid://bjk5uwfdsxhp" path="res://assets/sprite/LandAndPipe/pipe_down.png" id="1_74j3c"]
+[ext_resource type="Texture2D" uid="uid://ch5qfvn6o75fg" path="res://assets/sprite/LandAndPipe/pipe_up.png" id="2_efk1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvca7"]
+size = Vector2(46, 319)
+
+[node name="Pipe" type="Pipe"]
+
+[node name="Pip01" type="Node2D" parent="."]
+position = Vector2(-96, -176)
+
+[node name="01_up" type="Area2D" parent="Pip01"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip01/01_up"]
+texture = ExtResource("1_74j3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip01/01_up"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")
+
+[node name="01_down" type="Area2D" parent="Pip01"]
+position = Vector2(0, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip01/01_down"]
+texture = ExtResource("2_efk1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip01/01_down"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")
+
+[node name="Pip02" type="Node2D" parent="."]
+position = Vector2(0, -176)
+
+[node name="01_up" type="Area2D" parent="Pip02"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip02/01_up"]
+texture = ExtResource("1_74j3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip02/01_up"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")
+
+[node name="01_down" type="Area2D" parent="Pip02"]
+position = Vector2(0, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip02/01_down"]
+texture = ExtResource("2_efk1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip02/01_down"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")
+
+[node name="Pip03" type="Node2D" parent="."]
+position = Vector2(96, -176)
+
+[node name="01_up" type="Area2D" parent="Pip03"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip03/01_up"]
+texture = ExtResource("1_74j3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip03/01_up"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")
+
+[node name="01_down" type="Area2D" parent="Pip03"]
+position = Vector2(0, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pip03/01_down"]
+texture = ExtResource("2_efk1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pip03/01_down"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bvca7")

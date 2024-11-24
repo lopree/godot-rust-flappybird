@@ -6,6 +6,8 @@ use godot::classes::Sprite2D;
 #[class(base=Node2D)]
 struct Land{
     #[export]
+    land_y_position:f32,
+    #[export]
     max_speed:f32,
     left_bound:f32,
     land_sprites: Vec<Option<Gd<Sprite2D>>>,
@@ -17,6 +19,7 @@ struct Land{
 impl INode2D for Land{
     fn init(base:Base<Node2D>)->Self{
         Self{
+            land_y_position : -56.0,
             max_speed:-50.0,
             left_bound:-336.0,
             land_sprites:Vec::new(),
@@ -25,7 +28,6 @@ impl INode2D for Land{
         }
     }
     fn enter_tree(&mut self){
-        godot_print!("Land enter_tree,max_speed:{}",self.max_speed);
         let num = self.base().get_child_count();
         for i in 0..num{
             if let Some(child) = self.base().get_child(i){
@@ -52,7 +54,7 @@ impl INode2D for Land{
         for sprite in &mut self.land_sprites {
             if let Some(sprite) = sprite {
                 if sprite.get_position().x <= self.left_bound {
-                    sprite.set_position(Vector2::new(target_position_x - self.left_bound, -56.0));
+                    sprite.set_position(Vector2::new(target_position_x - self.left_bound, self.land_y_position));
                 }
                 sprite.move_local_x(self.max_speed * _delta as f32);
             }
