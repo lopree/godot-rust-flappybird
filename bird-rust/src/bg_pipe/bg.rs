@@ -5,7 +5,7 @@ use rand::Rng;
 
 #[derive(GodotClass)]
 #[class(base=Node2D)]
-struct Pipe{
+struct Background{
     #[export]
     inter_time :f32,
     day_night_time:f32,
@@ -15,7 +15,7 @@ struct Pipe{
 }
 
 #[godot_api]
-impl INode2D for Pipe {
+impl INode2D for Background {
     fn init(base:Base<Node2D>)->Self{
         Self{
             inter_time:7.0,
@@ -53,7 +53,7 @@ impl INode2D for Pipe {
     }
 }
 #[godot_api]
-impl Pipe{
+impl Background{
     fn set_background(&mut self,day_or_night:bool){
         if day_or_night {
             self.pipe_sprite[0].as_mut().unwrap().set_visible(true);

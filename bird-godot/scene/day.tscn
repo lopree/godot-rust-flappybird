@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnelklisincbr" path="res://assets/sprite/bg/bg_day.png" id="1_862mn"]
 [ext_resource type="Texture2D" uid="uid://c36tnnlhrg2kq" path="res://assets/sprite/bg/bg_night.png" id="2_bt853"]
 
-[node name="bg" type="Pipe"]
+[node name="bg" type="Background"]
 
 [node name="day" type="Sprite2D" parent="."]
 texture = ExtResource("1_862mn")
