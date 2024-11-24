@@ -1,3 +1,4 @@
+mod game_manager;
 mod player;
 mod coin;
 use godot::prelude::*;

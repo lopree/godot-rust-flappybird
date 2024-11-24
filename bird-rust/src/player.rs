@@ -1,6 +1,5 @@
 use godot::prelude::*;
 use godot::classes::{CharacterBody2D,ICharacterBody2D,AnimatedSprite2D};
-use godot::classes::InputEvent;
 use godot::classes::ProjectSettings;
 
 #[derive(GodotClass)]
@@ -16,7 +15,7 @@ impl ICharacterBody2D for Player {
     fn init(base:Base<CharacterBody2D>)->Self{
         Self{
             gravity: ProjectSettings::singleton().get_setting("physics/2d/default_gravity").try_to::<f32>().unwrap_or(90.0),
-            jump_velocity:-20.0,
+            jump_velocity:-15.0,
             base
         }
     }
@@ -53,7 +52,7 @@ impl ICharacterBody2D for Player {
 #[godot_api]
 impl Player{
     fn apply_gravity(&mut self, mut velocity: Vector2,_delta:f64) -> Vector2 {
-        velocity.y += self.gravity / 40.0 * _delta as f32;
+        velocity.y += self.gravity / 28.0 * _delta as f32;
         velocity
     }
     fn jump(&mut self,mut velocity:Vector2)->Vector2{
