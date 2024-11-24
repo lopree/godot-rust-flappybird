@@ -21,8 +21,6 @@ impl IArea2D for Coin {
         let callable = Callable::from_object_method(&self.base(), "on_collision_enter");
         self.base_mut().connect("body_entered", &callable);
         self.gm = self.base().try_get_node_as::<GameManager>("../GameManager");
-
-        
         
     }
 }
@@ -35,12 +33,11 @@ impl Coin{
        match &mut self.gm{
         Some(gm)=>{
             gm.bind_mut().add_score();
-            let _ = gm.bind_mut().get_score();
         }
         None=>{
             godot_print!("gm is none");
         }
-       
+    
     }
        self.base_mut().queue_free();
     }
