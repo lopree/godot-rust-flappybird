@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdc14bk6uho35"]
+[gd_scene load_steps=7 format=3 uid="uid://cdc14bk6uho35"]
 
 [ext_resource type="PackedScene" uid="uid://mvv4d0qr7rtx" path="res://scene/player.tscn" id="1_ubdtt"]
 [ext_resource type="PackedScene" uid="uid://2p8qfu88mxry" path="res://scene/coin.tscn" id="2_2rrat"]
 [ext_resource type="PackedScene" uid="uid://buh2wxmq8qln1" path="res://scene/land.tscn" id="3_icslq"]
 [ext_resource type="PackedScene" uid="uid://dwovt410e0phr" path="res://scene/day.tscn" id="4_hyd8b"]
+[ext_resource type="Texture2D" uid="uid://b8xusi1ccclfv" path="res://assets/sprite/ui/button_play.png" id="5_ipxb7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y2jvk"]
 
@@ -18,7 +19,8 @@ position = Vector2(-126, 191)
 position = Vector2(-3, -1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(2, -30)
+zoom = Vector2(3.495, 3.176)
 
 [node name="Coin" parent="." instance=ExtResource("2_2rrat")]
 position = Vector2(0, 26)
@@ -32,10 +34,10 @@ position = Vector2(-522, 82)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound/floor"]
 shape = SubResource("WorldBoundaryShape2D_y2jvk")
 
-[node name="Upfloor" type="StaticBody2D" parent="bound"]
-position = Vector2(0, -163)
+[node name="ceiling" type="StaticBody2D" parent="bound"]
+position = Vector2(1, -211)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bound/Upfloor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound/ceiling"]
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_y2jvk")
 
@@ -44,3 +46,34 @@ inter_time = 60.0
 z_index = -1
 position = Vector2(2, -45)
 scale = Vector2(0.65, 0.65)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -70.0
+offset_top = -119.0
+offset_right = 79.0
+offset_bottom = 44.0
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = -70.0
+offset_top = -119.0
+offset_right = 79.0
+offset_bottom = -41.0
+icon = ExtResource("5_ipxb7")
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -102.0
+offset_right = 62.0
+offset_bottom = -24.0
+icon = ExtResource("5_ipxb7")

@@ -33,7 +33,6 @@ impl INode2D for Background {
         self.day_night_time = self.inter_time;
 
         let random_index = rand::thread_rng().gen_range(0..100);
-        godot_print!("random_index:{}",random_index);
         if random_index < 70 {
             self.pipe_sprite[1].as_mut().unwrap().set_visible(false);
             self.day_or_night = true;

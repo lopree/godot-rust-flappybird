@@ -1,7 +1,6 @@
 use godot::prelude::*;
 use godot::classes::Sprite2D;
 
-
 #[derive(GodotClass)]
 #[class(base=Node2D)]
 struct Land{
