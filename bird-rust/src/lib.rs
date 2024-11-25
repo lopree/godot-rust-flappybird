@@ -1,6 +1,7 @@
 mod game_manager;
 mod player;
 mod bg_pipe;
+mod ui;
 mod coin;
 use godot::prelude::*;
 

@@ -12,6 +12,7 @@ impl INode2D for Pipe{
         Self{base}
     }
     //初始化三根管道之间的距离，以及位置，以及各个管道中间的间隔
+
 }
 
 

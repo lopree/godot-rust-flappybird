@@ -1,3 +1,4 @@
+StartButton
 Button
 VBoxContainer
 Control
@@ -11,4 +12,3 @@ Node
 Land
 GameManager
 StaticBody2D
-AnimationPlayer

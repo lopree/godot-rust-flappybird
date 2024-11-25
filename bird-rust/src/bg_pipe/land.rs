@@ -1,15 +1,16 @@
 use godot::prelude::*;
 use godot::classes::Sprite2D;
-
+use crate::game_manager::GameManager;
 #[derive(GodotClass)]
 #[class(base=Node2D)]
 struct Land{
     #[export]
-    land_y_position:f32,
+    land_y_position:f32,//地板的y轴位置
     #[export]
-    max_speed:f32,
-    left_bound:f32,
-    land_sprites: Vec<Option<Gd<Sprite2D>>>,
+    max_speed:f32,//移动速度
+    land_move_state:bool,//移动状态
+    left_bound:f32,//左侧的边界距离
+    land_sprites: Vec<Option<Gd<Sprite2D>>>,//地面的精灵集合
     number_of_land:u8,
     base:Base<Node2D>
 }
@@ -20,6 +21,7 @@ impl INode2D for Land{
         Self{
             land_y_position : -56.0,
             max_speed:-50.0,
+            land_move_state:false,
             left_bound:-336.0,
             land_sprites:Vec::new(),
             number_of_land:0,
@@ -34,6 +36,10 @@ impl INode2D for Land{
             }
         }
         self.number_of_land = self.land_sprites.len() as u8;
+        //绑定信号
+        let mut gm = self.base().get_node_as::<GameManager>("../GameManager");
+        let callable = Callable::from_object_method(&self.base(), "set_land_move_state");
+        gm.connect("start_play", &callable);
     }
     fn process(&mut self, _delta:f64){
         let mut target_position_x = 0.0;
@@ -52,12 +58,21 @@ impl INode2D for Land{
         }
         for sprite in &mut self.land_sprites {
             if let Some(sprite) = sprite {
-                if sprite.get_position().x <= self.left_bound {
-                    sprite.set_position(Vector2::new(target_position_x - self.left_bound, self.land_y_position));
+                if self.land_move_state {
+                    if sprite.get_position().x <= self.left_bound {
+                        sprite.set_position(Vector2::new(target_position_x - self.left_bound, self.land_y_position));
+                    }
+                    sprite.move_local_x(self.max_speed * _delta as f32);
                 }
-                sprite.move_local_x(self.max_speed * _delta as f32);
             }
         }
     }
+}
 
+#[godot_api]
+impl Land{
+    #[func]
+    fn set_land_move_state(&mut self,state:bool){
+        self.land_move_state = state;
+    }
 }

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://2p8qfu88mxry" path="res://scene/coin.tscn" id="2_2rrat"]
 [ext_resource type="PackedScene" uid="uid://buh2wxmq8qln1" path="res://scene/land.tscn" id="3_icslq"]
 [ext_resource type="PackedScene" uid="uid://dwovt410e0phr" path="res://scene/day.tscn" id="4_hyd8b"]
-[ext_resource type="Texture2D" uid="uid://b8xusi1ccclfv" path="res://assets/sprite/ui/button_play.png" id="5_ipxb7"]
+[ext_resource type="PackedScene" uid="uid://dwf7et1in8tlv" path="res://scene/main_ui.tscn" id="5_6vf55"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y2jvk"]
 
@@ -16,7 +16,7 @@
 position = Vector2(-126, 191)
 
 [node name="Player" parent="." instance=ExtResource("1_ubdtt")]
-position = Vector2(-3, -1)
+position = Vector2(0, -42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -30)
@@ -47,33 +47,8 @@ z_index = -1
 position = Vector2(2, -45)
 scale = Vector2(0.65, 0.65)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = -70.0
-offset_top = -119.0
-offset_right = 79.0
-offset_bottom = 44.0
-
-[node name="Button" type="Button" parent="Control"]
-visible = false
-layout_mode = 2
-offset_left = -70.0
-offset_top = -119.0
-offset_right = 79.0
-offset_bottom = -41.0
-icon = ExtResource("5_ipxb7")
-
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -62.0
-offset_top = -102.0
-offset_right = 62.0
-offset_bottom = -24.0
-icon = ExtResource("5_ipxb7")
+[node name="Control" parent="." instance=ExtResource("5_6vf55")]
+offset_left = -17.0
+offset_top = -10.0
+offset_right = 23.0
+offset_bottom = 30.0

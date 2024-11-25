@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=648
 window/size/viewport_height=1152
 
+[gui]
+
+theme/custom_font="res://assets/fonts/LXGWWenKaiMonoGB-Regular.ttf"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -26,5 +26,8 @@ impl GameManager {
         godot_print!("score:{}",self.score);
         self.score
     }
+
+    #[signal]
+    pub fn start_play();
 }
 
