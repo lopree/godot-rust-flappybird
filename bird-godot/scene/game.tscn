@@ -52,11 +52,12 @@ scale = Vector2(0.65, 0.65)
 offset_top = -42.0
 offset_bottom = -2.0
 
-[node name="Music" type="Music" parent="."]
-
 [node name="set_ui" parent="." instance=ExtResource("6_qcpkb")]
 visible = false
 offset_left = 44.0
 offset_top = -113.0
 offset_right = 44.0
 offset_bottom = -113.0
+
+[node name="Music" type="Music" parent="."]
+bus = &"Music"

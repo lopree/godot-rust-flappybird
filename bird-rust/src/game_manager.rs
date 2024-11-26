@@ -35,5 +35,11 @@ impl GameManager {
     /// 修改皮肤
     #[signal]
     pub fn change_skin();
+    /// 音乐音量
+    #[signal]
+    pub fn music_volume();
+    /// 音效音量
+    #[signal]
+    pub fn sfx_volume();
 }
 
