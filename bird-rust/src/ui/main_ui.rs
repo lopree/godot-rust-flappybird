@@ -1,4 +1,4 @@
-use godot::{classes::{Button,IButton}, prelude::*};
+use godot::{classes::{Button, Control, IButton}, prelude::*};
 use crate::game_manager::GameManager;
 #[derive(GodotClass)]
 #[class(base=Button)]
@@ -27,6 +27,8 @@ impl StartButton{
         let mut gm = self.base().get_node_as::<GameManager>("../../../GameManager");
         let args = &[true.to_variant()];
         gm.emit_signal("start_play", args);
-        self.base_mut().queue_free();
+        //隐藏所有的UI
+        let mut ui_root = self.base().get_node_as::<Control>("../../../Control");
+        ui_root.hide()  ;
     }
 }
