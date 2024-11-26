@@ -29,5 +29,8 @@ impl GameManager {
 
     #[signal]
     pub fn start_play();
+    /// 音乐状态
+    #[signal]
+    pub fn music_state();
 }
 

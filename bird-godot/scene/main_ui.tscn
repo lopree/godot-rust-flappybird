@@ -15,6 +15,11 @@ offset_top = -22.0
 offset_right = 20.0
 offset_bottom = 18.0
 
+[node name="GameTitle" type="Sprite2D" parent="."]
+position = Vector2(20, -130)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_vy5bn")
+
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -56,8 +61,3 @@ icon = ExtResource("4_c3pc6")
 [node name="Button3" type="Button" parent="SkinContainer"]
 layout_mode = 2
 icon = ExtResource("5_1yskb")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(20, -130)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_vy5bn")
