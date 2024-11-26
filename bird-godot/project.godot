@@ -22,7 +22,7 @@ window/size/viewport_height=1152
 
 [gui]
 
-theme/custom_font="res://assets/fonts/LXGWWenKaiMonoGB-Regular.ttf"
+theme/custom_font="res://assets/fonts/Early GameBoy.ttf"
 
 [rendering]
 

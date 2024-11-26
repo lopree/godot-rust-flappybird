@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://fll3b0xv1toj"]
+[gd_scene load_steps=4 format=3 uid="uid://fll3b0xv1toj"]
 
 [ext_resource type="Theme" uid="uid://de5sj8al50ulx" path="res://thema/main.tres" id="1_tolxs"]
+
+[sub_resource type="Gradient" id="Gradient_nej1k"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iqijq"]
+gradient = SubResource("Gradient_nej1k")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,38 +19,62 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.135802
-anchor_top = 0.118924
-anchor_right = 0.481481
-anchor_bottom = 0.485243
-offset_left = -200.0
-offset_top = -376.0
-offset_right = -200.0
-offset_bottom = -376.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -576.0
+offset_right = 316.0
+offset_bottom = 576.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_tolxs")
-metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 34
-theme_override_constants/margin_top = 150
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(320, 576)
+scale = Vector2(2.53125, 1168)
+texture = SubResource("GradientTexture1D_iqijq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 520
+theme_override_constants/margin_right = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 8
 columns = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
 text = "Music"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
