@@ -1,4 +1,4 @@
-use godot::{classes::{Slider, ISlider}, prelude::*};
+use godot::{classes::{ISlider,Slider}, prelude::*};
 
 #[derive(GodotClass)]
 #[class(base=Slider)]
