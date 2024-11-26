@@ -1,53 +1,58 @@
-[gd_scene load_steps=9 format=3 uid="uid://mvv4d0qr7rtx"]
+[gd_scene load_steps=12 format=3 uid="uid://mvv4d0qr7rtx"]
 
-[ext_resource type="Texture2D" uid="uid://how7cg3vqsnd" path="res://assets/sprite/atlas.png" id="1_kdcjw"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnemg"]
-atlas = ExtResource("1_kdcjw")
-region = Rect2(221, 742, 50, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6g5q"]
-atlas = ExtResource("1_kdcjw")
-region = Rect2(221, 795, 50, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shilj"]
-atlas = ExtResource("1_kdcjw")
-region = Rect2(221, 848, 50, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ml8e"]
-atlas = ExtResource("1_kdcjw")
-region = Rect2(221, 643, 53, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xyhn"]
-atlas = ExtResource("1_kdcjw")
-region = Rect2(221, 696, 53, 53)
+[ext_resource type="Texture2D" uid="uid://cjlqtseblqayj" path="res://assets/sprite/animations/bird1_0.png" id="1_5jv0d"]
+[ext_resource type="Texture2D" uid="uid://b28y6q5nohuoi" path="res://assets/sprite/animations/bird1_1.png" id="2_5c80q"]
+[ext_resource type="Texture2D" uid="uid://b43wu0psx2awi" path="res://assets/sprite/animations/bird1_2.png" id="3_paglq"]
+[ext_resource type="Texture2D" uid="uid://bv4cciroaxs8c" path="res://assets/sprite/animations/bird2_0.png" id="4_agjnm"]
+[ext_resource type="Texture2D" uid="uid://x074njeqdif0" path="res://assets/sprite/animations/bird2_1.png" id="5_3tv77"]
+[ext_resource type="Texture2D" uid="uid://buc0c15yrpo7w" path="res://assets/sprite/animations/bird0_0.png" id="5_bp1s6"]
+[ext_resource type="Texture2D" uid="uid://lk6dlxveo2af" path="res://assets/sprite/animations/bird2_2.png" id="6_87qm0"]
+[ext_resource type="Texture2D" uid="uid://c02h27v0kdg88" path="res://assets/sprite/animations/bird0_1.png" id="6_wq03f"]
+[ext_resource type="Texture2D" uid="uid://k8o1jf57owpi" path="res://assets/sprite/animations/bird0_2.png" id="7_lndu4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f2wkj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tnemg")
+"texture": ExtResource("1_5jv0d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p6g5q")
+"texture": ExtResource("2_5c80q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shilj")
+"texture": ExtResource("3_paglq")
 }],
 "loop": true,
-"name": &"fly",
+"name": &"blue",
 "speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ml8e")
+"texture": ExtResource("4_agjnm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2xyhn")
+"texture": ExtResource("5_3tv77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_87qm0")
 }],
 "loop": true,
-"name": &"fly02",
-"speed": 5.0
+"name": &"red",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bp1s6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wq03f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lndu4")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 9.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_logou"]
@@ -57,10 +62,10 @@ radius = 11.0
 collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -17)
+position = Vector2(3, -12)
 sprite_frames = SubResource("SpriteFrames_f2wkj")
-animation = &"fly"
-autoplay = "fly"
+animation = &"yellow"
+autoplay = "red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -12)

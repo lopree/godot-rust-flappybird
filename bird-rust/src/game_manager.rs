@@ -32,5 +32,8 @@ impl GameManager {
     /// 音乐状态
     #[signal]
     pub fn music_state();
+    /// 修改皮肤
+    #[signal]
+    pub fn change_skin();
 }
 

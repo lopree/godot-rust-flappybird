@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdc14bk6uho35"]
+[gd_scene load_steps=8 format=3 uid="uid://cdc14bk6uho35"]
 
 [ext_resource type="PackedScene" uid="uid://mvv4d0qr7rtx" path="res://scene/player.tscn" id="1_ubdtt"]
 [ext_resource type="PackedScene" uid="uid://2p8qfu88mxry" path="res://scene/coin.tscn" id="2_2rrat"]
 [ext_resource type="PackedScene" uid="uid://buh2wxmq8qln1" path="res://scene/land.tscn" id="3_icslq"]
 [ext_resource type="PackedScene" uid="uid://dwovt410e0phr" path="res://scene/day.tscn" id="4_hyd8b"]
 [ext_resource type="PackedScene" uid="uid://dwf7et1in8tlv" path="res://scene/main_ui.tscn" id="5_6vf55"]
+[ext_resource type="PackedScene" uid="uid://fll3b0xv1toj" path="res://scene/set_ui.tscn" id="6_qcpkb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y2jvk"]
 
@@ -52,3 +53,9 @@ offset_top = -42.0
 offset_bottom = -2.0
 
 [node name="Music" type="Music" parent="."]
+
+[node name="Control2" parent="." instance=ExtResource("6_qcpkb")]
+offset_left = 44.0
+offset_top = -113.0
+offset_right = 44.0
+offset_bottom = -113.0

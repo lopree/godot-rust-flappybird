@@ -1,12 +1,16 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://de5sj8al50ulx"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://de5sj8al50ulx"]
 
 [ext_resource type="StyleBox" uid="uid://c3d68obnrhepv" path="res://thema/button_focus.tres" id="1_0m0bs"]
 [ext_resource type="StyleBox" uid="uid://bmjwyejspsclw" path="res://thema/transparent_button_style_box_flat.tres" id="1_1gwp8"]
 [ext_resource type="StyleBox" uid="uid://cg5yjywbkjty8" path="res://thema/button_hover.tres" id="1_ljcw7"]
 [ext_resource type="StyleBox" uid="uid://c5wpnlye7axjw" path="res://thema/button_pressed.tres" id="2_v57vx"]
+[ext_resource type="StyleBox" uid="uid://cra460lbe1ibq" path="res://thema/panel_flat.tres" id="5_uvrjm"]
 
 [resource]
 Button/styles/focus = ExtResource("1_0m0bs")
 Button/styles/hover = ExtResource("1_ljcw7")
 Button/styles/normal = ExtResource("1_1gwp8")
 Button/styles/pressed = ExtResource("2_v57vx")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 12
+PanelContainer/styles/panel = ExtResource("5_uvrjm")
