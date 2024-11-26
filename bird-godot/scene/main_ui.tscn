@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwf7et1in8tlv"]
+[gd_scene load_steps=8 format=3 uid="uid://dwf7et1in8tlv"]
 
 [ext_resource type="Theme" uid="uid://de5sj8al50ulx" path="res://thema/main.tres" id="1_qpm0c"]
 [ext_resource type="Texture2D" uid="uid://b8xusi1ccclfv" path="res://assets/sprite/ui/button_play.png" id="2_olr6d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fqa2nup5827o" path="res://assets/sprite/skin/bird1_0.png" id="4_c3pc6"]
 [ext_resource type="Texture2D" uid="uid://bpqhrka8fryyv" path="res://assets/sprite/skin/bird2_0.png" id="5_1yskb"]
 [ext_resource type="Texture2D" uid="uid://34l05rd1xq06" path="res://assets/sprite/bg/title.png" id="6_vy5bn"]
+[ext_resource type="Texture2D" uid="uid://dqad88bch8p7r" path="res://assets/sprite/bg/music_fill.png" id="7_l11yr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -43,6 +44,7 @@ theme = ExtResource("1_qpm0c")
 icon = ExtResource("2_olr6d")
 
 [node name="SkinContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = -67.0
 offset_top = -93.0
 offset_right = 109.0
@@ -61,3 +63,20 @@ icon = ExtResource("4_c3pc6")
 [node name="Button3" type="Button" parent="SkinContainer"]
 layout_mode = 2
 icon = ExtResource("5_1yskb")
+
+[node name="MusicButton" type="MusicButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = -26.0
+offset_right = 60.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_qpm0c")
+icon = ExtResource("7_l11yr")
+expand_icon = true

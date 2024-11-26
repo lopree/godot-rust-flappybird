@@ -1,5 +1,6 @@
 use godot::prelude::*;
 use godot::classes::AudioStream;
+use crate::game_manager::GameManager;
 #[derive(GodotClass)]
 #[class(base=AudioStreamPlayer)]
 struct Music{
@@ -16,19 +17,21 @@ impl IAudioStreamPlayer for Music{
         }
     }
     fn enter_tree(&mut self){
-        //self.base_mut().set_autoplay(true);
         let music_stream = self.music_stream.clone();
         self.base_mut().set_stream(&music_stream);
         self.base_mut().play();
+        //find game manager
+        let mut gm = self.base().get_node_as::<GameManager>("../GameManager");
+        let callable = Callable::from_object_method(&self.base(), "change_music_state");
+        gm.connect("music_state", &callable);
+        
     }
 }
 
 #[godot_api]
 impl Music{
-    fn play_music(&mut self){
-        self.base_mut().play();
-    }
-    fn stop_music(&mut self){
-        self.base_mut().stop();
+    #[func]
+    fn change_music_state(&mut self,state:bool){
+       self.base_mut().set_stream_paused(state);
     }
 }
