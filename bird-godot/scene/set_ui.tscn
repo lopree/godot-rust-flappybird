@@ -33,57 +33,92 @@ grow_vertical = 2
 theme = ExtResource("1_tolxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
-position = Vector2(320, 576)
-scale = Vector2(2.53125, 1168)
+position = Vector2(324, 680)
+scale = Vector2(1.90625, 640)
 texture = SubResource("GradientTexture1D_iqijq")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 200
+theme_override_constants/margin_left = 220
 theme_override_constants/margin_top = 520
 theme_override_constants/margin_right = 300
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 21
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Music_GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 8
 columns = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Music_Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 12
 text = "Music"
 
-[node name="Music_Slider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Music_Slider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFX_Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Language_GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="Language_Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Language_GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/Language_GridContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_1/text = "Chinese"
+popup/item_1/id = 1
+
+[node name="Save_Back_Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SAVE&BACK"
+
+[node name="Quict_Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT GAME"
 
 [node name="SliderManager" type="SliderManager" parent="." node_paths=PackedStringArray("music_slider", "sfx_slider")]
-music_slider = NodePath("../PanelContainer/MarginContainer/VBoxContainer/GridContainer/Music_Slider")
-sfx_slider = NodePath("../PanelContainer/MarginContainer/VBoxContainer/GridContainer/SFX_Slider")
+music_slider = NodePath("../PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer/Music_Slider")
+sfx_slider = NodePath("../PanelContainer/MarginContainer/VBoxContainer/Music_GridContainer/SFX_Slider")
 layout_mode = 0
 offset_left = -64.0
 offset_top = -120.0
 offset_right = -24.0
 offset_bottom = -80.0
+
+[node name="SetUIManager" type="SetUIManager" parent="." node_paths=PackedStringArray("root_control", "language_option_button", "save_button", "exit_button")]
+root_control = NodePath("..")
+language_option_button = NodePath("../PanelContainer/MarginContainer/VBoxContainer/Language_GridContainer/OptionButton")
+save_button = NodePath("../PanelContainer/MarginContainer/VBoxContainer/Save_Back_Button")
+exit_button = NodePath("../PanelContainer/MarginContainer/VBoxContainer/Quict_Button")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
