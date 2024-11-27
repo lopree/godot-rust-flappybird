@@ -34,7 +34,11 @@ impl IButton for MusicButton{
     fn enter_tree(&mut self){
         let callable = Callable::from_object_method(&self.base(), "on_button_pressed");
         self.base_mut().connect("pressed", &callable);
+        
         self.gm = self.base().try_get_node_as::<GameManager>("../../GameManager");
+        if self.gm.is_none() {
+            self.gm = self.base().try_get_node_as::<GameManager>("../../../../GameManager");
+        }
     }
 }
 #[godot_api]
@@ -54,6 +58,8 @@ impl MusicButton{
         let args = &[self.start_music_state.to_variant()];
         if let Some(gm) = &mut self.gm{
             gm.emit_signal("music_state", args);
+        }else{
+            godot_error!("cant find gm");
         };
         
         self.start_music_state = !self.start_music_state;

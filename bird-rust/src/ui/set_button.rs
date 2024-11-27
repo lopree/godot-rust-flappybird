@@ -17,6 +17,9 @@ impl IButton for SetButton{
 
     fn enter_tree(&mut self){
         self.set_ui = self.base().try_get_node_as::<Control>("../../set_ui");
+        if self.set_ui.is_none(){
+            self.set_ui = self.base().try_get_node_as::<Control>("../../../../set_ui");
+        }
        
         let callable = Callable::from_object_method(&self.base(), "on_button_pressed");
         self.base_mut().connect("pressed", &callable);

@@ -29,15 +29,18 @@ impl IAudioStreamPlayer for Music{
         let music_stream = self.music_stream.clone();
         self.base_mut().set_stream(&music_stream);
         self.base_mut().play();
-        //find game manager
-        let mut gm = self.base().get_node_as::<GameManager>("../GameManager");
-        let callable = Callable::from_object_method(&self.base(), "change_music_state");
-        let music_callable = Callable::from_object_method(&self.base(), "change_music_volume");
-        let sfx_callable = Callable::from_object_method(&self.base(), "change_sfx_volume");
-        gm.connect("music_state", &callable);
-        gm.connect("music_volume", &music_callable);
-        gm.connect("sfx_volume", &sfx_callable);
-
+        //find game manager 
+        let gm = self.base().try_get_node_as::<GameManager>("../GameManager");
+        if let Some(mut gm) = gm{
+            let callable = Callable::from_object_method(&self.base(), "change_music_state");
+            let music_callable = Callable::from_object_method(&self.base(), "change_music_volume");
+            let sfx_callable = Callable::from_object_method(&self.base(), "change_sfx_volume");
+            gm.connect("music_state", &callable);
+            gm.connect("music_volume", &music_callable);
+            gm.connect("sfx_volume", &sfx_callable);
+        }else{
+            godot_error!("未找到gm")
+        }
         
     }
 }

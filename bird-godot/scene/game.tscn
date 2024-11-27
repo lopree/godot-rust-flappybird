@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdc14bk6uho35"]
+[gd_scene load_steps=9 format=3 uid="uid://cdc14bk6uho35"]
 
 [ext_resource type="PackedScene" uid="uid://mvv4d0qr7rtx" path="res://scene/player.tscn" id="1_ubdtt"]
 [ext_resource type="PackedScene" uid="uid://2p8qfu88mxry" path="res://scene/coin.tscn" id="2_2rrat"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwovt410e0phr" path="res://scene/day.tscn" id="4_hyd8b"]
 [ext_resource type="PackedScene" uid="uid://dwf7et1in8tlv" path="res://scene/main_ui.tscn" id="5_6vf55"]
 [ext_resource type="PackedScene" uid="uid://fll3b0xv1toj" path="res://scene/set_ui.tscn" id="6_qcpkb"]
+[ext_resource type="PackedScene" uid="uid://ccs7ddt6oipbx" path="res://scene/play_ui.tscn" id="7_o2wec"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y2jvk"]
 
@@ -51,6 +52,13 @@ scale = Vector2(0.65, 0.65)
 [node name="main_ui" parent="." instance=ExtResource("5_6vf55")]
 offset_top = -42.0
 offset_bottom = -2.0
+
+[node name="play_ui" parent="." instance=ExtResource("7_o2wec")]
+visible = false
+offset_left = -58.0
+offset_top = -198.0
+offset_right = -58.0
+offset_bottom = -198.0
 
 [node name="set_ui" parent="." instance=ExtResource("6_qcpkb")]
 visible = false
